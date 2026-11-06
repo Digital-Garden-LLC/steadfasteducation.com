@@ -1,0 +1,142 @@
+:root {
+  --ink: #20240f;
+  --ink-soft: #4a4f38;
+  --moss: #5a6d24;
+  --moss-dark: #46551b;
+  --pine: #2a3214;
+  --sage: #eceee0;
+  --sage-mid: #d0d5ba;
+  --paper: #fcfcf8;
+  --white: #fff;
+  --gutter: max(1.25rem, calc((100% - 70rem) / 2));
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--sage);
+  color: var(--ink);
+  font: 1.0625rem/1.6 var(--sans);
+}
+
+a { color: var(--moss-dark); }
+a:focus-visible { outline: 3px solid var(--moss); outline-offset: 2px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+ul { margin: 0; padding: 0; list-style: none; }
+section { scroll-margin-top: 1rem; }
+
+.skip-link { position: absolute; left: -999px; top: 0.5rem; padding: 0.5rem 1rem; background: var(--white); }
+.skip-link:focus { left: 0.5rem; z-index: 1; }
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  padding: 1.25rem var(--gutter);
+}
+.logo { display: block; line-height: 0; }
+.logo img { height: 3.25rem; width: auto; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.site-header nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+.site-header nav a:hover { color: var(--moss-dark); text-decoration: underline; text-underline-offset: 0.25em; }
+
+/* Hero: the page headline, intro, and contact link */
+.level1 > h1, .level1 > p {
+  margin-inline: var(--gutter) 1.25rem;
+  max-width: 50rem;
+}
+.level1 > h1 {
+  margin-block: clamp(2.5rem, 7vw, 5.5rem) 1.5rem;
+  font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.level1 > p { margin-block: 0 2rem; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.5; color: var(--ink-soft); }
+.level1 > p:last-of-type { margin-bottom: clamp(3rem, 7vw, 5.5rem); }
+.level1 > p:last-of-type a {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--moss);
+  color: var(--white);
+  border-radius: 3px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.level1 > p:last-of-type a:hover { background: var(--moss-dark); }
+
+/* Shared section layout */
+.level2 { padding: clamp(3rem, 7vw, 5.5rem) var(--gutter); background: var(--paper); }
+.level2 > h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); margin-bottom: 2.5rem; }
+
+/* Overview */
+#everything-your-team-needs-in-one-system ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 2.25rem 3rem;
+}
+#everything-your-team-needs-in-one-system li { padding-top: 1rem; border-top: 2px solid var(--moss); }
+li strong { color: var(--moss-dark); }
+
+/* Why Infinity */
+#why-infinity { background: var(--pine); color: var(--white); display: grid; gap: 1.5rem 5rem; }
+#why-infinity > h2 { margin-bottom: 0; }
+#why-infinity > p:first-of-type { font: 1.45rem/1.35 var(--serif); margin: 0; }
+#why-infinity > p:last-of-type { margin: 0; color: var(--sage-mid); }
+#why-infinity li { padding: 1rem 0; border-top: 1px solid rgb(255 255 255 / 0.2); }
+#why-infinity li:first-child { padding-top: 0; border-top: 0; }
+#why-infinity li strong { color: var(--white); }
+@media (min-width: 52rem) {
+  #why-infinity { grid-template-columns: 5fr 7fr; grid-template-rows: auto auto 1fr; }
+  #why-infinity > h2, #why-infinity > p { grid-column: 1; }
+  #why-infinity > ul { grid-column: 2; grid-row: 1 / span 3; }
+}
+
+/* Benefits */
+#the-benefits-of-infinity {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  gap: 3rem 4rem;
+}
+#the-benefits-of-infinity > h2 { grid-column: 1 / -1; margin-bottom: 0; }
+.level3 > h3 { font-size: 1.45rem; margin-bottom: 1rem; }
+#the-benefits-of-infinity li { padding-left: 1.1rem; margin-bottom: 0.8rem; border-left: 2px solid var(--sage-mid); }
+
+/* Features */
+#features {
+  background: var(--sage);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: 1.25rem;
+}
+#features > h2 { grid-column: 1 / -1; margin-bottom: 1.25rem; }
+#features .level3 { background: var(--white); padding: 1.75rem; border-radius: 3px; }
+#features h3 { font-size: 1.25rem; min-height: 2.4em; }
+#features li { position: relative; padding: 0.3rem 0 0.3rem 1.25rem; font-size: 0.98rem; line-height: 1.4; }
+#features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--moss);
+}
+
+/* Footer */
+.site-footer { padding: 3rem var(--gutter); background: var(--pine); color: var(--sage-mid); font-size: 0.98rem; }
+.site-footer address { font-style: normal; }
+.site-footer a { color: var(--white); }
+.footer-logo { display: block; height: 3.25rem; width: auto; margin-bottom: 1.5rem; }
+.footer-name { margin: 0 0 0.75rem; font-weight: 600; color: var(--white); }
+.copyright { margin: 2rem 0 0; font-size: 0.875rem; }
