@@ -1,4 +1,4 @@
-# Special education management, all in one place
+# Infinity
 
 Infinity by Steadfast Education helps districts plan and manage Early On, Special Education, C4S, and 504 students in a single system, with Medicaid billing and state reporting built in.
 
